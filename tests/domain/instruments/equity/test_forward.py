@@ -1,7 +1,7 @@
 from datetime import date
 import pytest
-from skans.domain.instruments.equity.forward import EquityForward
-from skans.domain.types.enums import Currency
+from atlas.domain.instruments.equity.forward import EquityForward
+from atlas.domain.types.enums import Currency
 
 
 def test_equity_forward_instantiation() -> None:

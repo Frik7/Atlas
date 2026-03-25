@@ -1,5 +1,5 @@
 """
-Market Environment DTOs for the Skans Risk Engine.
+Market Environment DTOs for the Atlas Risk Engine.
 Provides the memory-efficient handoff between the Generator and the Engine.
 """
 

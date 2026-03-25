@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from datetime import date
-from skans.domain.types.aliases import Price
-from skans.domain.types.enums import Currency
+from atlas.domain.types.aliases import Price
+from atlas.domain.types.enums import Currency
 
 
 @dataclass(frozen=True, slots=True)

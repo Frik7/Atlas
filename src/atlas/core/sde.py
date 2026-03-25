@@ -1,5 +1,5 @@
 from typing import cast
-from skans.core.rng import RandomNumberGenerator, SimpleRng
+from atlas.core.rng import RandomNumberGenerator, SimpleRng
 import numpy as np
 
 

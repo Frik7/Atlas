@@ -1,7 +1,7 @@
 from datetime import date
 import pytest
-from skans.domain.instruments.fx.forward import FXForward
-from skans.domain.types.enums import Currency
+from atlas.domain.instruments.fx.forward import FXForward
+from atlas.domain.types.enums import Currency
 
 
 def test_fx_forward_instantiation() -> None:

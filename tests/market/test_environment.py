@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from skans.market.environment import RiskFactorSchema, MarketEnvironment
+from atlas.market.environment import RiskFactorSchema, MarketEnvironment
 
 
 def test_risk_factor_schema_get_index_success() -> None:

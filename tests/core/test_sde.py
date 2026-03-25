@@ -1,7 +1,7 @@
 import numpy as np
 
-from skans.core.sde import geometric_brownian_motion
-from skans.core.rng import SimpleRng
+from atlas.core.sde import geometric_brownian_motion
+from atlas.core.rng import SimpleRng
 
 
 def test_geometric_brownian_motion_default_rng() -> None:

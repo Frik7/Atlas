@@ -2,9 +2,9 @@ from dataclasses import dataclass
 from typing import Tuple, Dict, Union
 from functools import cached_property
 
-from skans.domain.types.aliases import Quantity
-from skans.domain.types.enums import LongShort
-from skans.domain.instruments import EquityForward, EquityOption, FXForward, FXOption
+from atlas.domain.types.aliases import Quantity
+from atlas.domain.types.enums import LongShort
+from atlas.domain.instruments import EquityForward, EquityOption, FXForward, FXOption
 
 # Algebraic Data Type (Tagged Union) representing all valid instruments
 AnyInstrument = Union[EquityForward, EquityOption, FXForward, FXOption]

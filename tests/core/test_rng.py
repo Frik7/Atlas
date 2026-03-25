@@ -1,6 +1,6 @@
 import numpy as np
 
-from skans.core.rng import SimpleRng, RandomNumberGenerator
+from atlas.core.rng import SimpleRng, RandomNumberGenerator
 
 
 def test_simple_rng_protocol_compliance() -> None:

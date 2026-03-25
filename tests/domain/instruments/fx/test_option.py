@@ -1,7 +1,7 @@
 from datetime import date
 import pytest
-from skans.domain.instruments.fx.option import FXOption
-from skans.domain.types.enums import Currency, OptionType
+from atlas.domain.instruments.fx.option import FXOption
+from atlas.domain.types.enums import Currency, OptionType
 
 
 def test_fx_option_instantiation() -> None:

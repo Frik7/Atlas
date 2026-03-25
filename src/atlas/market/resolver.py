@@ -1,9 +1,9 @@
 from typing import Iterable, Set, Dict
 
-from skans.domain.portfolio import Position
-from skans.domain.instruments.equity import EquityForward, EquityOption
-from skans.domain.instruments.fx import FXForward, FXOption
-from skans.market.environment import RiskFactorSchema
+from atlas.domain.portfolio import Position
+from atlas.domain.instruments.equity import EquityForward, EquityOption
+from atlas.domain.instruments.fx import FXForward, FXOption
+from atlas.market.environment import RiskFactorSchema
 
 
 class DependencyResolver:

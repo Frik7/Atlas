@@ -1,8 +1,8 @@
 from datetime import date
 import pytest
-from skans.domain.portfolio import Position, Trade, Portfolio, NettingSet
-from skans.domain.instruments.equity.forward import EquityForward
-from skans.domain.types.enums import Currency, LongShort
+from atlas.domain.portfolio import Position, Trade, Portfolio, NettingSet
+from atlas.domain.instruments.equity.forward import EquityForward
+from atlas.domain.types.enums import Currency, LongShort
 
 
 @pytest.fixture

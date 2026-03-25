@@ -1,7 +1,7 @@
 from datetime import date
 import pytest
-from skans.domain.instruments.equity.option import EquityOption
-from skans.domain.types.enums import OptionType, Currency
+from atlas.domain.instruments.equity.option import EquityOption
+from atlas.domain.types.enums import OptionType, Currency
 
 
 def test_equity_option_instantiation() -> None:

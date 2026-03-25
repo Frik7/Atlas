@@ -1,9 +1,9 @@
 """
-Basic tests for Skans.
+Basic tests for Atlas.
 """
 
-import skans
+import atlas
 
 
 def test_version() -> None:
-    assert skans.__version__ == "0.1.0"
+    assert atlas.__version__ == "0.1.0"

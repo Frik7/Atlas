@@ -1,10 +1,10 @@
 import pytest
 from datetime import date
-from skans.domain.portfolio import Position
-from skans.domain.instruments.equity import EquityForward, EquityOption
-from skans.domain.instruments.fx import FXForward, FXOption
-from skans.domain.types.enums import Currency, OptionType
-from skans.market.resolver import DependencyResolver
+from atlas.domain.portfolio import Position
+from atlas.domain.instruments.equity import EquityForward, EquityOption
+from atlas.domain.instruments.fx import FXForward, FXOption
+from atlas.domain.types.enums import Currency, OptionType
+from atlas.market.resolver import DependencyResolver
 
 
 def test_resolve_empty_positions() -> None:
