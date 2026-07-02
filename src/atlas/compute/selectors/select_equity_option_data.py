@@ -6,20 +6,16 @@ def select_bsm_data(
     instrument: Any,
     market_data: MarketDataSnapshot,
 ) -> Dict[str, Any]:
-    """
-    Selects the required instrument and market data to be used in the
-    Black-Scholes-Merton pricer.
+    """Select the data required for the Black-Scholes-Merton pricer.
 
     Args:
-        instrument: The equity option instrument.
-        market_data: The market data snapshot.
+        instrument (Any): The equity option instrument.
+        market_data (MarketDataSnapshot): The market data snapshot.
 
     Returns:
-        A dictionary containing the Black-Scholes-Merton data.
-        The keys in this dictionary should correspond to the arguments
-        expected by the Black-Scholes-Merton pricer.
+        Dict[str, Any]: A dictionary containing the Black-Scholes-Merton data
+            keys and values.
     """
-
     return {
         "valuation_date": market_data.valuation_date,
         "expiry_date": instrument.expiry_date,

@@ -12,8 +12,16 @@ PRICER_REGISTRY: Dict[str, Tuple[Callable, Callable]] = {
 
 
 def calculate_price(instrument: Any, market_data: MarketDataSnapshot) -> float:
-    """ """
+    """Calculate the price of a financial instrument using registered models.
 
+    Args:
+        instrument (Any): The financial instrument to be priced.
+        market_data (MarketDataSnapshot): The snapshot container of
+            current market variables.
+
+    Returns:
+        float: The calculated price of the instrument.
+    """
     instrument_type = type(instrument).__name__
 
     if instrument_type not in PRICER_REGISTRY:

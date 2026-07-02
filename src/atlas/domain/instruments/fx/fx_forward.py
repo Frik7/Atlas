@@ -5,13 +5,14 @@ from atlas.domain.enums import Currency
 
 @dataclass(frozen=True, slots=True)
 class FxForward:
-    """
-    Args:
-    base_ccy: Base currency
-    quote_ccy: Quote currency
-    strike_forward_rate: Forward rate (base_ccy/quote_ccy)
-    notional: Notional amount (base currency)
-    settlement_date: Settlement date
+    """Representation of a Foreign Exchange (FX) Forward contract.
+
+    Attributes:
+        base_ccy (Currency): Base currency.
+        quote_ccy (Currency): Quote currency.
+        strike_forward_rate (float): Forward rate (base_ccy/quote_ccy).
+        notional (float): Notional amount (base currency).
+        settlement_date (ql.Date): Settlement date.
     """
 
     base_ccy: Currency

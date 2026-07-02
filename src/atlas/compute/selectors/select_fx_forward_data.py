@@ -7,19 +7,15 @@ def select_fx_forward_data(
     instrument: FxForward,
     market_data: MarketDataSnapshot,
 ) -> Dict[str, Any]:
-    """
-    Selects the required instrument and market data to be used in the
-    FX Forward pricer.
-    The keys in the return dictionary should correspond to the arguments
-    expected by the FX Forward pricer.
+    """Select the data required for the FX Forward pricer.
 
     Args:
-        instrument (FxForward): FX forward instrument
-        market_data (MarketDataSnapshot): Market data snapshot
-    Returns:
-        Dict[str, Any]: FX forward data
-    """
+        instrument (FxForward): The FX forward instrument.
+        market_data (MarketDataSnapshot): The market data snapshot.
 
+    Returns:
+        Dict[str, Any]: A dictionary containing the FX forward data keys and values.
+    """
     valuation_date = market_data.valuation_date
     settlement_date = instrument.settlement_date
     strike_forward_rate = instrument.strike_forward_rate

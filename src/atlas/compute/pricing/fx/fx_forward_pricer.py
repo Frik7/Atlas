@@ -11,22 +11,22 @@ def fx_forward_pricer(
     foreign_interest_rate: float,
     domestic_interest_rate: float,
 ) -> float:
-    """
-    FX Forward Pricing
-    ----------------
+    """Calculate the present value of an FX Forward contract.
 
     Args:
-        valuation_date (ql.Date): Valuation date
-        settlement_date (ql.Date): Settlement date
-        strike_forward_rate (float): Strike forward rate (base_ccy/quote_ccy)
-        notional (float): Notional (base_ccy)
-        spot_exchange_rate (float): Spot exchange rate (base_ccy/quote_ccy)
-        foreign_interest_rate (float): Foreign interest rate (quote_ccy)
-        domestic_interest_rate (float): Domestic interest rate (base_ccy)
-    Returns:
-        float: FX Forward price (base_ccy)
-    """
+        valuation_date (ql.Date): The valuation date.
+        settlement_date (ql.Date): The forward settlement date.
+        strike_forward_rate (float): The contracted forward exchange rate.
+        notional (float): The base currency contract notional.
+        spot_exchange_rate (float): The current spot exchange rate.
+        foreign_interest_rate (float): The interest rate of the foreign
+            (base) currency.
+        domestic_interest_rate (float): The interest rate of the domestic
+            (quote) currency.
 
+    Returns:
+        float: The present value of the forward contract.
+    """
     dc_act365 = ql.Actual365Fixed()
     year_fraction = dc_act365.yearFraction(valuation_date, settlement_date)
 

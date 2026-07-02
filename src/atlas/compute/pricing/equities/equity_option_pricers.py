@@ -13,12 +13,21 @@ def black_scholes_merton_pricer(
     volatility: float,
     option_type: int,
 ) -> float:
-    """
-    Args:
-        option: European equity option
-        market_data: Market data container
-    """
+    """Calculate the Black-Scholes-Merton option price.
 
+    Args:
+        valuation_date (ql.Date): The valuation date.
+        expiry_date (ql.Date): The option expiry date.
+        spot_price (float): The underlying spot price.
+        strike_price (float): The option strike price.
+        risk_free_rate (float): The continuously compounded risk-free interest rate.
+        dividend_yield (float): The continuous dividend yield of the underlying.
+        volatility (float): The implied volatility of the underlying.
+        option_type (int): 1 for Call, -1 for Put.
+
+    Returns:
+        float: The calculated option price.
+    """
     dc_act365 = ql.Actual365Fixed()
     T = dc_act365.yearFraction(valuation_date, expiry_date)
 

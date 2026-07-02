@@ -10,15 +10,17 @@ def compile_equity_options(portfolio: Tuple[EuropeanEquityOption, ...]) -> Tuple
     np.ndarray,
     np.ndarray,
 ]:
-    """
-    Compile a portfolio of European equity options into a tuple of numpy arrays.
+    """Compile a portfolio of European equity options into a tuple of numpy arrays.
 
     Args:
-        portfolio: A tuple of EuropeanEquityOption objects.
+        portfolio (Tuple[EuropeanEquityOption, ...]): A tuple of
+            EuropeanEquityOption objects.
 
     Returns:
-        A tuple of numpy arrays corresponding to the option characteristics in order:
-        (strikes, expiry_dates, underlying_ids, option_types, currencies)
+        Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+            A tuple of numpy arrays corresponding to the option
+            characteristics in order:
+            (strikes, expiry_dates, underlying_ids, option_types, currencies)
     """
     strikes = np.array([opt.strike_price for opt in portfolio], dtype=np.float64)
     expiry_dates = np.array([opt.expiry_date for opt in portfolio], dtype=object)
