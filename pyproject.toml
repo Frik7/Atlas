@@ -25,6 +25,12 @@ dev = [
     "pytest",
     "mypy",
 ]
+docs = [
+    "mkdocs",
+    "mkdocs-material",
+    "pymdown-extensions",
+    "mkdocstrings[python]",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]

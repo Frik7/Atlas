@@ -1,0 +1,80 @@
+site_name: Atlas
+site_description: High-performance financial engineering engine for derivative pricing, exposure, and XVA.
+site_author: Frik Strydom
+repo_url: https://github.com/Frik7/Atlas
+repo_name: Frik7/Atlas
+
+theme:
+  name: material
+  palette:
+    # Light Mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark Mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.arithmatex:
+      generic: true
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            show_root_heading: true
+            show_source: true
+
+nav:
+  - Home: index.md
+  - User Guide:
+      - Getting Started: user/getting_started.md
+      - Portfolio Valuation: user/portfolio_valuation.md
+      - Market Data Pipeline: user/market_data_pipeline.md
+  - Developer Guide:
+      - Architecture: developer/architecture.md
+      - Adding Instruments & Pricers: developer/adding_instruments_pricers.md
+      - Contributing: developer/contributing.md
+  - Mathematical Reference: reference/mathematical_models.md
+  - API Reference: reference/api.md
