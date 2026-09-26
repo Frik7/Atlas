@@ -12,6 +12,7 @@ dependencies = [
     "numpy",
     "scipy",
     "pandas",
+    "QuantLib",
 ]
 authors = [
     { name = "Frik Strydom" },
