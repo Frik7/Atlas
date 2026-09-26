@@ -16,6 +16,17 @@ def select_bsm_data(
         Dict[str, Any]: A dictionary containing the Black-Scholes-Merton data
             keys and values.
     """
+    if (
+        market_data.equity_spots is None
+        or market_data.fixed_rate is None
+        or market_data.dividend_rates is None
+        or market_data.volatility_rates is None
+    ):
+        raise ValueError(
+            "Equity option pricing requires equity_spots, fixed_rate, "
+            "dividend_rates and volatility_rates data."
+        )
+
     return {
         "valuation_date": market_data.valuation_date,
         "expiry_date": instrument.expiry_date,

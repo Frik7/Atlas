@@ -16,6 +16,9 @@ def select_fx_forward_data(
     Returns:
         Dict[str, Any]: A dictionary containing the FX forward data keys and values.
     """
+    if market_data.fx_spots is None or market_data.fixed_rate is None:
+        raise ValueError("FX forward pricing requires fx_spots and fixed_rate data.")
+
     valuation_date = market_data.valuation_date
     settlement_date = instrument.settlement_date
     strike_forward_rate = instrument.strike_forward_rate
