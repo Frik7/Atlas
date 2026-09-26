@@ -1,36 +1,20 @@
 # API Reference
 
-This page contains the automatically generated API documentation for the **Atlas** engine modules, classes, and pricing routines.
+This manual describes the programming interface of the **Atlas** engine. It is organized into three main categories of functions, classes, and submodules.
 
 ---
 
-## 🏛 Domain Models
+## 🏛️ [Domain Reference](domain.md)
+The **Domain Reference** provides data schemas, enums, instrument specifications, and market data snapshots. These represent the financial products and states managed by the Atlas pricing system.
 
-### European Equity Option
-::: atlas.domain.instruments.equities.options.EuropeanEquityOption
+* Learn more on the [Domain Reference](domain.md) landing page.
 
-### FX Forward Contract
-::: atlas.domain.instruments.fx.fx_forward.FxForward
+## 🧮 [Pricing Functions](pricing.md)
+The **Pricing Functions** contain the mathematical pricers, selector routines, and the pricing dispatcher. These are pure, stateless functions that compute prices and exposure metrics.
 
-### Market Data Snapshot
-::: atlas.domain.market.market_data.MarketDataSnapshot
+* Learn more on the [Pricing Functions](pricing.md) landing page.
 
----
+## 🛠️ [Utilities](utils.md)
+The **Utilities** module is reserved for general helper routines, logging, and performance utilities.
 
-## 🧮 Compute & Pricing Routines
-
-### Black-Scholes-Merton Option Pricer
-::: atlas.compute.pricing.equities.equity_option_pricers.black_scholes_merton_pricer
-
-### FX Forward Pricer
-::: atlas.compute.pricing.fx.fx_forward_pricer.fx_forward_pricer
-
-### Pricing Dispatcher
-::: atlas.compute.pricing.pricing_dispatcher
-
----
-
-## ⚡ Compilers & Vectorizers
-
-### Equity Option Compiler
-::: atlas.compiliers.equity_option_compiler
+* Learn more on the [Utilities](utils.md) landing page.

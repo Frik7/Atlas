@@ -1,11 +1,10 @@
 from typing import Any, Callable, Dict, Tuple
-from atlas.compute.pricing.equities import black_scholes_merton_pricer
-from atlas.compute.pricing.fx import fx_forward_pricer
-from atlas.compute.selectors.select_equity_option_data import select_bsm_data
-from atlas.compute.selectors.select_fx_forward_data import select_fx_forward_data
+from atlas.pricing import black_scholes_merton_pricer, fx_forward_pricer
+from atlas.pricing._selectors import select_bsm_data, select_fx_forward_data
+
 from atlas.domain.market.market_data import MarketDataSnapshot
 
-PRICER_REGISTRY: Dict[str, Tuple[Callable, Callable]] = {
+PRICER_REGISTRY: Dict[str, Tuple[Callable[..., Any], Callable[..., float]]] = {
     "EuropeanEquityOption": (select_bsm_data, black_scholes_merton_pricer),
     "FxForward": (select_fx_forward_data, fx_forward_pricer),
 }

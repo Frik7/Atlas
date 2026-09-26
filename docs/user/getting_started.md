@@ -13,7 +13,6 @@ Atlas is built entirely on a **functional programming paradigm**. Rather than ty
 1. **Domain Models (`src/atlas/domain/`)**: Pure data structures (Python dataclasses or simple classes) that represent financial instruments (e.g., European Options, FX Forwards) and market states.
 2. **Selectors (`src/atlas/compute/selectors/`)**: Functions that extract specific variables from a generic market data snapshot and pair them with instrument parameters to build inputs for a specific pricer.
 3. **Pricers (`src/atlas/compute/pricing/`)**: Stateless, pure mathematical functions that take primitive values (floats, dates, arrays) and return valuation results (e.g., present value, Greeks).
-4. **Compilers (`src/atlas/compiliers/`)**: Vectorization utilities that compile large tuples of structured instruments into flat NumPy arrays for highly efficient batch execution.
 
 ### The Power of Modularity
 Because our mathematical pricing functions are stateless, they can be utilized:
@@ -39,7 +38,7 @@ You can call the pure mathematical pricing functions directly. Here is a simple 
 
 ```python
 import QuantLib as ql
-from atlas.compute.pricing.equities.equity_option_pricers import black_scholes_merton_pricer
+from atlas.pricing import black_scholes_merton_pricer
 
 # Define the valuation and contract dates
 valuation_date = ql.Date(2, 7, 2026)
@@ -66,7 +65,6 @@ print(f"BSM Call Price: {price:.4f}")
 
 To explore more advanced features, navigate to the following sections:
 
-* **[Portfolio Valuation](file:///c:/Users/FrikStrydom/Github/Atlas/docs/user/portfolio_valuation.md)**: Learn how to price entire collections of trades using NumPy compilers and vectorization.
 * **[Market Data Pipeline](file:///c:/Users/FrikStrydom/Github/Atlas/docs/user/market_data_pipeline.md)**: Understand how market yield curves, spot rates, and volatility surfaces are organized using the `MarketDataSnapshot` class.
 * **[Mathematical Reference](file:///c:/Users/FrikStrydom/Github/Atlas/docs/reference/mathematical_models.md)**: Review the exact mathematical equations and formulations used under the hood.
 

@@ -52,10 +52,6 @@ Let's walkthrough the steps required to add a new product (e.g. an **Equity Barr
      }
      ```
 
-5. [ ] **Write the Instrument Compiler (Optional)**
-   * If the instrument will be priced inside portfolios, write or extend a compiler inside `src/atlas/compiliers/` to batch-convert tuples of the new instrument into flat NumPy arrays.
-
-6. [ ] **Add Unit Tests**
-   * Write tests for the compiler under `tests/test_<instrument>_compiler.py`.
+5. [ ] **Add Unit Tests**
    * Write tests for the selector, pricer, and dispatcher under `tests/test_<instrument>_pricers.py`.
    * Verify using `pytest`.

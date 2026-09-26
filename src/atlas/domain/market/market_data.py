@@ -1,6 +1,6 @@
-from typing import Dict, Tuple
+from typing import Dict, Tuple, Optional
 from atlas.domain.enums import Currency
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 import QuantLib as ql
 
 
@@ -87,8 +87,8 @@ class MarketDataSnapshot:
     """
 
     valuation_date: ql.Date
-    equity_spots: Dict[str, EquitySpot]
-    fixed_rate: Dict[Currency, FixedRate]
-    volatility_rates: Dict[str, StaticVolatility]
-    dividend_rates: Dict[str, DividendRate]
-    fx_spots: Dict[Tuple[Currency, Currency], FXSpot] = field(default_factory=Dict)
+    equity_spots: Optional[Dict[str, EquitySpot]] = None
+    fixed_rate: Optional[Dict[Currency, FixedRate]] = None
+    volatility_rates: Optional[Dict[str, StaticVolatility]] = None
+    dividend_rates: Optional[Dict[str, DividendRate]] = None
+    fx_spots: Optional[Dict[Tuple[Currency, Currency], FXSpot]] = None

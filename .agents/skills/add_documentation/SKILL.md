@@ -19,12 +19,14 @@ All repository documentation files live inside the [docs/](file:///c:/Users/Frik
     * `getting_started.md`: Introduces the engine's capabilities and design philosophy.
     * `portfolio_valuation.md`: Explains how portfolios are compiled and valued in batch.
     * `market_data_pipeline.md`: Explains how market variables are formatted and injected.
+
 * **Developer Documentation (`docs/developer/`)**:
   * For internal engine designs, diagrams, and onboarding instructions.
   * Key files:
     * `architecture.md`: Explains the stateless functional architecture layers.
     * `adding_instruments_pricers.md`: Checklist of files to modify when adding new products.
     * `contributing.md`: Workspace setup, type checking, and command references.
+    
 * **Mathematical Reference (`docs/reference/`)**:
   * For documenting quantitative pricing models and risk calculations.
   * Key files:

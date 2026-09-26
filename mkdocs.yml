@@ -64,17 +64,22 @@ plugins:
           options:
             docstring_style: google
             show_root_heading: true
-            show_source: true
+            show_source: false
+            show_root_full_path: false
+            show_object_full_path: false
 
 nav:
   - Home: index.md
   - User Guide:
       - Getting Started: user/getting_started.md
-      - Portfolio Valuation: user/portfolio_valuation.md
       - Market Data Pipeline: user/market_data_pipeline.md
   - Developer Guide:
       - Architecture: developer/architecture.md
       - Adding Instruments & Pricers: developer/adding_instruments_pricers.md
       - Contributing: developer/contributing.md
   - Mathematical Reference: reference/mathematical_models.md
-  - API Reference: reference/api.md
+  - API Reference:
+      - API Overview: reference/api.md
+      - Utilities: reference/utils.md
+      - Domain Reference: reference/domain.md
+      - Pricing Functions: reference/pricing.md

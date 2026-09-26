@@ -11,7 +11,11 @@ from atlas.domain.market.market_data import (
     FXSpot,
 )
 from atlas.domain.enums import Currency
-from atlas.compute.pricing.pricing_dispatcher import calculate_price
+from atlas.pricing import (
+    calculate_price,
+    black_scholes_merton_pricer,
+    fx_forward_pricer,
+)
 
 
 def test_price_european_equity_option_call() -> None:
@@ -108,6 +112,46 @@ def test_price_fx_forward() -> None:
     # domestic_df = e^(-0.04) = 0.9607894
     # price = 1,000,000 * (1.12 * e^(-0.03) - 1.10 * e^(-0.04))
     # price = 1,000,000 * (1.12 * 0.9704455 - 1.10 * 0.9607894)
-    # price = 1,000,000 * (1.08689896 - 1.05686834) = 30030.62
     expected_price = 1_000_000.0 * (1.12 * math.exp(-0.03) - 1.10 * math.exp(-0.04))
     assert math.isclose(price, expected_price, rel_tol=1e-5)
+
+
+def test_direct_pricing_imports() -> None:
+    valuation_date = ql.Date(22, 6, 2026)
+    expiry_date = ql.Date(22, 6, 2027)
+
+    # Test BSM pricer imported from atlas.pricing
+    price_bsm = black_scholes_merton_pricer(
+        valuation_date=valuation_date,
+        expiry_date=expiry_date,
+        spot_price=100.0,
+        strike_price=100.0,
+        risk_free_rate=0.05,
+        dividend_yield=0.0,
+        volatility=0.2,
+        option_type=1,
+    )
+    assert price_bsm > 0.0
+
+    # Test FX Forward pricer imported from atlas.pricing
+    price_fx = fx_forward_pricer(
+        valuation_date=valuation_date,
+        settlement_date=expiry_date,
+        strike_forward_rate=1.10,
+        notional=1_000_000.0,
+        spot_exchange_rate=1.12,
+        foreign_interest_rate=0.04,
+        domestic_interest_rate=0.03,
+    )
+    assert price_fx > 0.0
+
+
+def test_market_data_snapshot_optional_fields() -> None:
+    valuation_date = ql.Date(22, 6, 2026)
+    snapshot = MarketDataSnapshot(valuation_date=valuation_date)
+    assert snapshot.valuation_date == valuation_date
+    assert snapshot.equity_spots is None
+    assert snapshot.fixed_rate is None
+    assert snapshot.volatility_rates is None
+    assert snapshot.dividend_rates is None
+    assert snapshot.fx_spots is None

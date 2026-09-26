@@ -8,7 +8,7 @@ Atlas is engineered around a **functional programming paradigm** designed to pro
 
 ## 1. Core Architectural Layers
 
-Atlas separates data representation from mathematical calculation, arranging components into four decoupled layers:
+Atlas separates data representation from mathematical calculation, arranging components into three decoupled layers:
 
 ```mermaid
 graph TD
@@ -20,11 +20,7 @@ graph TD
     
     Selector[Selector Function]:::computeStyle
     Pricer[Pure Pricer Function]:::computeStyle
-    Compiler[Compiler Function]:::computeStyle
     Dispatcher[calculate_price Dispatcher]:::computeStyle
-    
-    Portfolio[Portfolio/Tuple of Instruments]:::domainStyle
-    NumPyArrays[Compiled NumPy Arrays]:::computeStyle
 
     %% Path 1: Single Instrument Valuation
     Instrument --> Selector
@@ -32,11 +28,6 @@ graph TD
     Selector --> |Kwargs Dictionary| Dispatcher
     Dispatcher --> |Unpack Kwargs| Pricer
     Pricer --> |Float Price| Output[Resulting Price]
-
-    %% Path 2: Batch Compiler Valuation
-    Portfolio --> Compiler
-    Compiler --> NumPyArrays
-    NumPyArrays --> |Loop / Batch Pricing| Pricer
 ```
 
 ### Layer Details
@@ -59,10 +50,7 @@ graph TD
 * **Characteristics**: Stateless mathematical formulas taking primitive arguments (floats, dates, integers) and returning floating-point results.
 * **Design Goal**: These functions are completely independent and can be used on their own in isolated calculations without importing any domain classes.
 
-### 4. The Compiler Layer (`src/atlas/compiliers/`)
-* **Purpose**: Vectorizes instrument models into continuous arrays.
-* **Characteristics**: Converts a tuple of domain objects to a tuple of NumPy arrays.
-* **Design Goal**: Avoids Python object iteration overhead and prepares data payloads for parallelization or high-speed hardware extensions.
+
 
 ---
 
